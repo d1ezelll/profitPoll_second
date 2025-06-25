@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitPoll</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="header-logo">ProfitPoll</h1>
+
+            <div class="header-menu">
+                <a href="./index.html" class="header-menu__item">Main</a>
+                <a href="#about" class="header-menu__item">About us</a>
+                <a href="#survey" class="header-menu__item">Survey</a>
+                <a href="#survey" class="header-menu__item">Receive money</a>
+
+                <div class="header-balance-menu">
+                    <p class="header-balance__text">Your wallet:</p>
+                    <p class="header-balance__cost">20 coin</p>
+                </div>
+            </div>
+
+            <div class="header-balance">
+                <p class="header-balance__text">Your wallet:</p>
+                <p class="header-balance__cost">20 coin</p>
+            </div>
+
+            <button class="burger-btn" aria-label="Menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="intro-container">
+                <div class="intro-left">
+                    <div class="intro-left__top">
+                        <h1 class="intro-left__title">
+                            Shape Your Community's Future: Share Your Voice in Our Survey!
+                        </h1>
+
+                        <h2 class="intro-left__subtitle">
+                            Help us understand local needs and priorities. Your feedback will directly impact important decisions.
+                        </h2>
+
+                        <a href="#survey" class="intro-left__button">
+                            Complete the survey
+                        </a>
+                    </div>
+                </div>
+
+                <div class="intro-right">
+                    <h1 class="intro-right__title">Solve polls<br>and get rewarded</h1>
+                    <img class="intro__picture" src="./img/intro.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-container">
+                <div class="about-left">
+                    <h1 class="about-left__title">
+                        About the project
+                    </h1>
+
+                    <h2 class="about-left__subtitle">
+                       This project gathers honest community feedback to help shape local policies and improve quality of life. 
+                       All responses are anonymous and used only in aggregate to protect your privacy.
+                    </h2>
+
+                    <div class="about-left__info">
+                       <div class="about-left__info-item">
+                            <p class="about-left__info-item__title">Task</p>
+                            <p class="about-left__info-item__subtitle">
+                                Collect comprehensive feedback from community members to identify key local issues and priorities.
+                            </p>
+                       </div>
+
+                       <div class="about-left__info-item">
+                            <p class="about-left__info-item__title">What Has Been Done</p>
+                            <ul class="about-left__info-item__list">
+                                <li class="about-left__info-item__list-item">Conducted initial surveys</li>
+                                <li class="about-left__info-item__list-item">Analyzed collected data</li>
+                                <li class="about-left__info-item__list-item">Highlighted main concerns and areas for improvement</li>
+                            </ul>
+                       </div>
+                    </div>
+                    
+                </div>
+
+                <div class="about-right">
+                    <img src="./img/about.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="survey">
+        <div class="footer-container">
+
+            <div class="quiz-container">
+   
+                <div class="quiz-slide active">
+                    <p class="quiz-number">1 of 15</p>
+                    <h2>What is your gender?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="gender" value="Male">
+                            <span class="checkmark"></span>
+                            Male
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="gender" value="Female">
+                            <span class="checkmark"></span>
+                            Female
+                        </label>
+                        <div class="specify-container">
+                            <label id="spec" class="option">
+                                <input type="radio" name="gender" value="Other">
+                                <span class="checkmark"></span>
+                                Other (specify)
+                            </label>
+                            <textarea type="text" class="specify-input" placeholder="Type your answer..."></textarea>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn" disabled>Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">2 of 15</p>
+                    <h2>What is your age?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="age" value="18-29">
+                            <span class="checkmark"></span>
+                            18-29
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="age" value="30-49">
+                            <span class="checkmark"></span>
+                            30-49
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="age" value="50-64">
+                            <span class="checkmark"></span>
+                            50-64
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="age" value="65+">
+                            <span class="checkmark"></span>
+                            65+
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">3 of 15</p>
+                    <h2>What is your political leaning?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="politics" value="Democrat/Liberal">
+                            <span class="checkmark"></span>
+                            Democrat/Liberal
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="politics" value="Republican/Conservative">
+                            <span class="checkmark"></span>
+                            Republican/Conservative
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="politics" value="Independent/Centrist">
+                            <span class="checkmark"></span>
+                            Independent/Centrist
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="politics" value="Apolitical">
+                            <span class="checkmark"></span>
+                            Apolitical
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <!-- Political questions -->
+                <div class="quiz-slide">
+                    <p class="quiz-number">4 of 15</p>
+                    <h2>Who is most responsible for rising prices?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="prices" value="Biden and his policies">
+                            <span class="checkmark"></span>
+                            Biden and his policies
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="prices" value="Corporate greed">
+                            <span class="checkmark"></span>
+                            Corporate greed
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="prices" value="Global crises and wars">
+                            <span class="checkmark"></span>
+                            Global crises and wars
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="prices" value="Not sure">
+                            <span class="checkmark"></span>
+                            Not sure
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">5 of 15</p>
+                    <h2>Should Trump be allowed to run for president again?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="trump" value="Yes, it's his right">
+                            <span class="checkmark"></span>
+                            Yes, it's his right
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="trump" value="No, he undermines democracy">
+                            <span class="checkmark"></span>
+                            No, he undermines democracy
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="trump" value="Don't care">
+                            <span class="checkmark"></span>
+                            Don't care
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">6 of 15</p>
+                    <h2>Do you support banning TikTok in the US?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="tiktok" value="Yes, it's a security threat">
+                            <span class="checkmark"></span>
+                            Yes, it's a security threat
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="tiktok" value="No, it's censorship">
+                            <span class="checkmark"></span>
+                            No, it's censorship
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="tiktok" value="Don't use TikTok">
+                            <span class="checkmark"></span>
+                            Don't use TikTok
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">7 of 15</p>
+                    <h2>Who deserves the Nobel Peace Prize more?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="nobel" value="Zelensky">
+                            <span class="checkmark"></span>
+                            Zelensky
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="nobel" value="Trump">
+                            <span class="checkmark"></span>
+                            Trump
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="nobel" value="Neither">
+                            <span class="checkmark"></span>
+                            Neither
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">8 of 15</p>
+                    <h2>Should police face criminal charges for fatal shootings during arrests?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="police" value="Yes, if excessive force was used">
+                            <span class="checkmark"></span>
+                            Yes, if excessive force was used
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="police" value="No, they risk their lives">
+                            <span class="checkmark"></span>
+                            No, they risk their lives
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="police" value="Depends on the situation">
+                            <span class="checkmark"></span>
+                            Depends on the situation
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">9 of 15</p>
+                    <h2>Should 18-year-olds be allowed to buy guns without background checks?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="guns" value="Yes, it's their right">
+                            <span class="checkmark"></span>
+                            Yes, it's their right
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="guns" value="No, it's dangerous">
+                            <span class="checkmark"></span>
+                            No, it's dangerous
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="guns" value="Only with psychological testing">
+                            <span class="checkmark"></span>
+                            Only with psychological testing
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">10 of 15</p>
+                    <h2>Would you support a millionaire tax to help the poor?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="tax" value="Yes, it's fair">
+                            <span class="checkmark"></span>
+                            Yes, it's fair
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="tax" value="No, it's theft">
+                            <span class="checkmark"></span>
+                            No, it's theft
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="tax" value="Only with spending oversight">
+                            <span class="checkmark"></span>
+                            Only with spending oversight
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">11 of 15</p>
+                    <h2>If elections were tomorrow, who would you vote for?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="vote" value="Biden">
+                            <span class="checkmark"></span>
+                            Biden
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="vote" value="Trump">
+                            <span class="checkmark"></span>
+                            Trump
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="vote" value="Third party">
+                            <span class="checkmark"></span>
+                            Third party
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="vote" value="Wouldn't vote">
+                            <span class="checkmark"></span>
+                            Wouldn't vote
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">12 of 15</p>
+                    <h2>Who poses the greatest threat to America?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="threat" value="China">
+                            <span class="checkmark"></span>
+                            China
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="threat" value="Russia">
+                            <span class="checkmark"></span>
+                            Russia
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="threat" value="Domestic corruption">
+                            <span class="checkmark"></span>
+                            Domestic corruption
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="threat" value="All equally">
+                            <span class="checkmark"></span>
+                            All equally
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <!-- Lifestyle questions -->
+                <div class="quiz-slide">
+                    <p class="quiz-number">13 of 15</p>
+                    <h2>How often do you shop online?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="shopping" value="Almost daily">
+                            <span class="checkmark"></span>
+                            Almost daily
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="shopping" value="Several times a week">
+                            <span class="checkmark"></span>
+                            Several times a week
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="shopping" value="Rarely, prefer stores">
+                            <span class="checkmark"></span>
+                            Rarely, prefer stores
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="shopping" value="Never shop online">
+                            <span class="checkmark"></span>
+                            Never shop online
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">14 of 15</p>
+                    <h2>Would you give up your car if public transport was perfect?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="transport" value="No, car means freedom">
+                            <span class="checkmark"></span>
+                            No, car means freedom
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="transport" value="Yes, if transport was convenient">
+                            <span class="checkmark"></span>
+                            Yes, if transport was convenient
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="transport" value="Maybe, but doubtful">
+                            <span class="checkmark"></span>
+                            Maybe, but doubtful
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn" disabled>Next question</button>
+                        <button class="skip-btn">Skip</button>
+                    </div>
+                </div>
+
+                <div class="quiz-slide">
+                    <p class="quiz-number">15 of 15</p>
+                    <h2>What's your view on artificial intelligence?</h2>
+                    <div class="options-container">
+                        <label class="option">
+                            <input type="radio" name="ai" value="The future, I support progress">
+                            <span class="checkmark"></span>
+                            The future, I support progress
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="ai" value="Needs strict regulation">
+                            <span class="checkmark"></span>
+                            Needs strict regulation
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="ai" value="Fear it will take jobs">
+                            <span class="checkmark"></span>
+                            Fear it will take jobs
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="ai" value="Don't care">
+                            <span class="checkmark"></span>
+                            Don't care
+                        </label>
+                    </div>
+                    <div class="navigation">
+                        <button class="prev-btn">Previous</button>
+                        <button class="next-btn">Finish</button>
+                    </div>
+                </div>
+
+                <!-- Thank you slide -->
+                <div class="quiz-slide">
+                    <h2>Let`s celebrate!</h2>
+                    <p>Congratulations! You have successfully completed the test. We appreciate your participation and hope you found it informative!</p>
+                    <img src="./img/gift.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
