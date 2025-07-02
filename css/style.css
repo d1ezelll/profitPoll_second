@@ -330,10 +330,16 @@ header {
 .survey {
     position: relative;
     background: rgba(165, 157, 227, 1);
-    min-height: 60vh;
+    height: 60vh;
     border-radius: 120px;
 }
 
+.survey-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 /* footer */
 
 
@@ -342,6 +348,10 @@ header {
   margin: 0 auto;
   font-family: Inter;
   padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .quiz-slide {
