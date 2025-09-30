@@ -1,32 +1,28 @@
-// Система баланса для блоков "Congratulations!"
 document.addEventListener('DOMContentLoaded', function() {
-    const BALANCE_KEY = 'user_balance';
-    const COMPLETED_REWARDS_KEY = 'completed_reward_slides';
+    // УНИКАЛЬНЫЕ КЛЮЧИ ДЛЯ ЭТОГО САЙТА
+    const BALANCE_KEY = 'profitpoll_v2_balance';
+    const COMPLETED_REWARDS_KEY = 'profitpoll_v2_completed_rewards';
     
-    let balance = parseInt(localStorage.getItem(BALANCE_KEY)) || 0;
+    let balance = parseInt(localStorage.getItem(BALANCE_KEY)) || 0; // Начальный баланс 0
     let completedRewards = JSON.parse(localStorage.getItem(COMPLETED_REWARDS_KEY)) || [];
     
-    // Обновление отображения баланса
     function updateBalanceDisplay() {
         document.querySelectorAll('.header-balance__cost').forEach(el => {
             el.textContent = balance + ' $';
         });
     }
     
-    // Получение уникального идентификатора слайда с наградой
     function getRewardSlideId(slide) {
         const title = slide.querySelector('h2');
         const content = slide.querySelector('p');
         return (title ? title.textContent : '') + (content ? content.textContent : '');
     }
     
-    // Проверка, была ли награда уже получена
     function isRewardCompleted(slide) {
         const slideId = getRewardSlideId(slide);
         return completedRewards.includes(slideId);
     }
     
-    // Отметка награды как полученной
     function markRewardAsCompleted(slide) {
         const slideId = getRewardSlideId(slide);
         if (!completedRewards.includes(slideId)) {
@@ -35,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Начисление награды
     function addReward(slide) {
         if (!isRewardCompleted(slide)) {
             balance += 10;
@@ -49,25 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     }
     
-    // Инициализация при загрузке
     updateBalanceDisplay();
     
-    // Обработчик для next-btn в блоках с Congratulations
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('next-btn')) {
             const slide = e.target.closest('.quiz-slide');
             
-            // Проверяем, является ли текущий слайд блоком с Congratulations
             if (slide && slide.querySelector('h2') && 
                 slide.querySelector('h2').textContent.includes('Congratulations')) {
                 
-                // Начисляем награду только если она еще не была получена
                 addReward(slide);
             }
         }
     });
     
-    // Обработчик для кнопки Claim в финальном слайде
     const finishButton = document.querySelector('.quiz-slide__finish-button');
     if (finishButton) {
         finishButton.addEventListener('click', function() {
@@ -85,10 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizSlides = document.querySelectorAll('.quiz-slide');
     let currentSlide = 0;
     
-    // Show first slide
     showSlide(currentSlide);
     
-    // Auto-advance functionality for questions
     document.querySelectorAll('.auto-next').forEach(radio => {
         radio.addEventListener('change', function() {
             setTimeout(() => {
@@ -98,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Next button functionality for reward slides
     document.querySelectorAll('.next-btn').forEach(button => {
         button.addEventListener('click', function() {
             currentSlide++;
@@ -107,43 +94,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function showSlide(n) {
-        // Hide all slides
         quizSlides.forEach(slide => {
             slide.classList.remove('active');
         });
         
-        // Show current slide
         quizSlides[n].classList.add('active');
     }
 
     const finishButton = document.querySelector('.quiz-slide__finish-button');
-  if (finishButton) {
-    finishButton.addEventListener('click', function() {
-      const balanceCosts = document.querySelectorAll('.header-balance__cost');
-      balanceCosts.forEach(element => {
-        element.textContent = '90 $';
-      });
-      
-      resetQuiz();
-    });
-  }
-  
-  function resetQuiz() {
-    currentSlide = 0;
-    showSlide(currentSlide);
-    
-    const allRadioInputs = document.querySelectorAll('input[type="radio"]');
-    allRadioInputs.forEach(input => {
-      input.checked = false;
-    });
-   
-    if (specifyInput) {
-      specifyInput.style.display = 'none';
-      specifyInput.value = '';
+    if (finishButton) {
+        finishButton.addEventListener('click', function() {
+            // Убрана установка баланса в 90$ - теперь баланс управляется системой выше
+            resetQuiz();
+        });
     }
+  
+    function resetQuiz() {
+        currentSlide = 0;
+        showSlide(currentSlide);
+        
+        const allRadioInputs = document.querySelectorAll('input[type="radio"]');
+        allRadioInputs.forEach(input => {
+            input.checked = false;
+        });
     
-    updateNextButton();
-  }
+        if (typeof specifyInput !== 'undefined' && specifyInput) {
+            specifyInput.style.display = 'none';
+            specifyInput.value = '';
+        }
+    
+        if (typeof updateNextButton !== 'undefined') {
+            updateNextButton();
+        }
+    }
 });
 
 
@@ -621,6 +604,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 });
-
-
-
